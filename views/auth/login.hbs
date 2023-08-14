@@ -1,4 +1,4 @@
-<div id="login-form">
+{{!-- <div id="login-form">
   <h1>SODAPOPP!</h1>
   <h2>Welcome Back! Log In</h2>
   <form action="/auth/login" method="POST">
@@ -23,4 +23,41 @@
       <p class="error">{{errorMessage}}</p>
     {{/if}}
   </form>
+</div> --}}
+
+<div class="container">
+      {{!-- <h1><img src="/images/sample-logo.png" alt="" class="logo-img"></h1> --}}
+  <div class="form-container">
+
+  <h2>WELCOME BACK, LOG BACK IN!!!</h2>
+    <form action="/auth/login" method="POST">
+      <div class="form-field">
+        {{!-- <label for="username">Username:</label> --}}
+        <input type="text" id="username" name="username" placeholder="Your username" required>
+      </div>
+
+      <div class="form-field">
+        {{!-- <label for="email">Email:</label> --}}
+        <input type="email" id="email" name="email" placeholder="Your email" required>
+      </div>
+
+      <div class="form-field">
+        {{!-- <label for="password">Password:</label> --}}
+        <input type="password" id="password" name="password" placeholder="Your password" required>
+      </div>
+
+      <div class="form-field">
+        <button type="submit">LOG IN</button>
+         <p class="form-field p">Don't have an account? <a href="/auth/signup">Sign up with us</a></p>
+      </div>
+
+      {{#if errorMessage}}
+        <p class="error">{{errorMessage}}</p>
+      {{/if}}
+    </form>
+  </div>
+  <div class="image-container">
+    {{!-- <video src="/Video/giphy.gif" class = "video" type = "gif"></video> --}}
+    <img src="/Video/mixkit-glass-with-ice-with-orange-soda-5099-medium (1).gif" alt="Image" class="image">
+  </div>
 </div>
