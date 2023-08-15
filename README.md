@@ -8,7 +8,7 @@ With this app, users can effortlessly work together, create communities and shar
 
 Have you ever been stumped by a problem in a project? Needed a new set of eyes or some inspiration? As students of web development, brtytemenz and I realised that collaboration is integral for learning and inspiration in this industry. No two brains work the same way and there are many ways to solve problems! We simply learn better when we work together!
 
-Sodapopp! has been built using Javascript, CSS and HTML, Bootstrap, Cloudinary, Adobe Illustrator and Mongoose. For the styling we used inspiration from canva, freepik, bootstrap and dribble.  We aimed to create an app that fulfils CRUD requirements, but was at the same time meaningful, user-friendly and fun!
+Sodapopp! has been built using Javascript, nodejs as the environment, expressjs as the backend framework, CSS and HTML, Bootstrap, Cloudinary, Adobe Illustrator and Mongoose. For the styling we used inspiration from canva, freepik, bootstrap and dribble.  We aimed to create an app that fulfils CRUD requirements, but was at the same time meaningful, user-friendly and fun!
 
 We would welcome contributions! There are many directions Sodapopp! can go in and we would love to hear your ideas. In our next steps, we hope to add forum functionality and further develop a real community aspect for students to find a space to come together, expand knowledge and get totally “sodapopping” for new projects!
 
