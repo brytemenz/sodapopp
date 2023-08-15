@@ -1,28 +1,39 @@
 {{!-- <h1>{{appTitle}} </h1> --}}
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+
+<nav class="navbar  navbar-expand-lg bg-body-tertiary" style="background-color: #e3f2fd;">
+{{!-- <nav class="navbar" style="background-color: #e3f2fd;"> --}}
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"><img class="logo-img" src="../images/sample-logo.png" alt="sodapopp logo"></a>
+    
+    <a class="navbar-brand" href="#"><img class="logo-img mb-2 mb-lg-0" src="../images/WhatsApp Image 2023-08-14 at 19.46.45.jpeg" alt="sodapopp logo"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/project/create">Create</a>
-        </li>
-        <form class="d-flex" role="search">
+          <form class="d-flex mb-2 mb-lg-0" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
       </form>
         <li class="nav-item">
-          <a class="nav-link" href="auth/signup">Join Sodapopp</a>
+          <a class="nav-link active" aria-current="page" href="/project/create">Create</a>
         </li>
+       
         <li class="nav-item">
-          <a class="nav-link " href="auth/login">Sign in</a>
+          <a class="nav-link " href="auth/logout">Sign out</a>
         </li>
       </ul>
+      
+      {{#if username}}
+  <h2>Hello, {{ username.username }}!</h2>
+
+{{!-- {{else}}
+  <p>Still no logged in user, sorry!</p> --}}
+{{/if}}
+
     </div>
   </div>
 </nav>
+
+
 <section>
     <div id="carouselExampleCaptions" class="carousel slide">
   <div class="carousel-indicators">
@@ -68,20 +79,64 @@
 </section>
 <br>
 <br>
+  {{!-- project section --}}
 <section>
   <h1>Projects</h1>
-  {{#each projects}}
+  {{#each allProjects}}
 {{projectName}}
  <a href="/project/{{_id}}" target="_blank"> <!-- Add the anchor tag around the image -->
       <img src="{{projectPhoto}}" alt="{{projectName}}Cover Photo" width="300" height="200" >
     </a>
         <a href="/project/{{_id}}" > <button class="button" type="submit">See Project Details</button></a>
-      <form action="/project/{{_id}}/like" method = "POST">
-<button> {{likes.length}} likes</button></form>
+        {{!-- edit --}}
 
+<a href="/project/{{_id}}/edit"><button>edit</button></a>
 
+{{!-- delete --}}
+<form action="/project/{{_id}}/delete" method="POST">
+<button class="button" type="submit">Delete</button>
 
-  {{!-- id="commentBody" cols="30" rows="10" --}}
+</form>
+  
     {{/each}}
-    
+
+  
+   {{!-- <div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <div class="card h-100">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Talking Rubbish</h5>
+        <p class="card-text">TAn interesting game created by her Excellency Kiruba.</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-body-secondary">Last updated 3 mins ago</small>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Debugging Hunt</h5>
+        <p class="card-text">Created by one annoying boy from Ghana.</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-body-secondary">Last updated 3 mins ago</small>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Save the Galaxy</h5>
+        <p class="card-text">Save Baby yoda from darth vader, created by magnificent Maria</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-body-secondary">Last updated 3 mins ago</small>
+      </div>
+    </div>
+  </div>
+</div> --}}
 </section>

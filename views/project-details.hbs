@@ -1,102 +1,71 @@
- <h1>Projects Details</h1>
-<img src="{{projectPhoto}}" alt="{{projectName}} Cover Photo" width="300" height="200">
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#collaborateModal">
-  Collaborate
-</button>
-<div
-  class="modal fade"
-  id="collaborateModal"
-  tabindex="-1"
-  aria-labelledby="collaborateModalLabel"
-  aria-hidden="true"
->
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="card-title">{{projectName}}</h1>
+          <p class="card-text">{{projectDescription}}</p>
+          <a href="{{projectLink}}" class="btn btn-warning">Project Link</a>
+          <a href="{{githubLink}}" class="btn btn-warning">GitHub Link</a>
+          <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#collaborateModal">
+            Collaborate
+          </button>
+        </div>
+      </div>
+      <div class="card mt-3">
+        <div class="card-body">
+          <h2 class="card-title">Comments</h2>
+          <div class="comments">
+            {{#each comments}}
+              <p class="card-text">{{commentBody}}</p>
+            {{/each}}
+          </div>
+          <form action="/project/comment" method="POST">
+            <input type="hidden" name="projectId" value={{_id}}>
+            <textarea class="form-control mb-2" name="commentBody" placeholder="Add your comment"></textarea>
+            <button class="btn btn-info">Add Comment</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <img src="{{projectPhoto}}" alt="{{projectName}} Cover Photo" class="img-fluid">
+      <form action="/project/{{_id}}/like" method="POST" class="mt-3">
+        <button class="btn btn-info">{{likes.length}} Likes</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="collaborateModal" tabindex="-1" aria-labelledby="collaborateModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="collaborateModalLabel">
           Collaborate on '{{ projectName }}' Project
         </h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form id="collaborationForm" action="collaborate" method="POST">
           <div class="mb-3">
             <label for="collaboratorName" class="form-label">Your Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="collaboratorName"
-              name="collaboratorName"
-              required
-            />
+            <input type="text" class="form-control" id="collaboratorName" name="collaboratorName" required>
           </div>
           <div class="mb-3">
-            <label for="githubUsername" class="form-label"
-              >GitHub Username</label
-            >
-            <input
-              type="text"
-              class="form-control"
-              id="githubUsername"
-              name="githubUsername"
-              required
-            />
+            <label for="githubUsername" class="form-label">GitHub Username</label>
+            <input type="text" class="form-control" id="githubUsername" name="githubUsername" required>
           </div>
           <div class="mb-3">
-            <label for="collaborationMessage" class="form-label"
-              >Reason for Collaboration</label
-            >
-            <textarea
-              class="form-control"
-              id="collaborationMessage"
-              name="collaborationMessage"
-              rows="4"
-              required
-            ></textarea>
+            <label for="collaborationMessage" class="form-label">Reason for Collaboration</label>
+            <textarea class="form-control" id="collaborationMessage" name="collaborationMessage" rows="4" required></textarea>
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Close
-        </button>
-        <button type="submit" form="collaborationForm" class="btn btn-primary">
-          Submit
-        </button>
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+        <button type="submit" form="collaborationForm" class="btn btn-warning">Submit</button>
       </div>
     </div>
   </div>
 </div>
-
-
-{{!-- <button>Like</button> --}}
-<form action="/project/{{_id}}/like" method = "POST">
-<button> {{likes.length}} likes</button></form>
-<button>Fund Me!</button>
-
-<h2>{{projectName}}</h2>
-<p>Description:  <br>{{
-projectDescription
-}}</p>
-<a href="{{projectLink}}">Project Link</a>
-<a href="{{githubLink}}">Github Link</a>
-
-  {{!-- for testing!! --}}
-<h2>comments!</h2>
- {{#each comments}}
- {{commentBody}}
-{{/each}}
-<form action="/project/comment" method = "POST">
-<input type="hidden" name = "projectId" value = {{_id}}>
-<textarea name="commentBody" ></textarea>
-<button>Add Comment</button>
-
-
-</form>
-
-  
