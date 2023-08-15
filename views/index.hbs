@@ -69,19 +69,25 @@
 <br>
 <br>
 <section>
-  <h1>Projects</h1>
+  <div class="row">
   {{#each projects}}
-{{projectName}}
- <a href="/project/{{_id}}" target="_blank"> <!-- Add the anchor tag around the image -->
-      <img src="{{projectPhoto}}" alt="{{projectName}}Cover Photo" width="300" height="200" >
-    </a>
-        <a href="/project/{{_id}}" > <button class="button" type="submit">See Project Details</button></a>
-      <form action="/project/{{_id}}/like" method = "POST">
-<button> {{likes.length}} likes</button></form>
-
-
-
-  {{!-- id="commentBody" cols="30" rows="10" --}}
-    {{/each}}
+  <div class="col-md-4 mb-4">
+    <div class="card h-100">
+      <a href="/project/{{_id}}" target="_blank">
+        <img src="{{projectPhoto}}" alt="{{projectName}} Cover Photo" class="card-img-top" style="max-height: 500px; max-width: 500px;">
+      </a>
+       <div class="card-body">
+          <h1 class="card-title">{{projectName}}</h1>
+          <form action="/project/{{_id}}" method="GET" class="mt-3">
+          <button class="btn btn-info">See Project Details</button>
+          </form>
+        </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>
     
 </section>
