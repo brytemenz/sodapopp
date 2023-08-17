@@ -45,24 +45,32 @@
           Collaborate on '{{ projectName }}' Project
         </h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form id="collaborationForm" action="collaborate" method="POST">
           <div class="mb-3">
             <label for="collaboratorName" class="form-label">Your Name</label>
             <input type="text" class="form-control" id="collaboratorName" name="collaboratorName" required>
+            <input type="text" class="form-control" id="collaboratorName" name="collaboratorName" required>
           </div>
           <div class="mb-3">
+            <label for="githubUsername" class="form-label">GitHub Username</label>
+            <input type="text" class="form-control" id="githubUsername" name="githubUsername" required>
             <label for="githubUsername" class="form-label">GitHub Username</label>
             <input type="text" class="form-control" id="githubUsername" name="githubUsername" required>
           </div>
           <div class="mb-3">
             <label for="collaborationMessage" class="form-label">Reason for Collaboration</label>
             <textarea class="form-control" id="collaborationMessage" name="collaborationMessage" rows="4" required></textarea>
+            <label for="collaborationMessage" class="form-label">Reason for Collaboration</label>
+            <textarea class="form-control" id="collaborationMessage" name="collaborationMessage" rows="4" required></textarea>
           </div>
         </form>
       </div>
       <div class="modal-footer">
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
+        <button type="submit" form="collaborationForm" class="btn btn-warning">Submit</button>
         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
         <button type="submit" form="collaborationForm" class="btn btn-warning">Submit</button>
       </div>
